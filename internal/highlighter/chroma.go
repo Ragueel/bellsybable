@@ -12,7 +12,7 @@ import (
 
 var ErrInvalidLanguage = errors.New("invalid language")
 
-type GenerateRequest struct {
+type Settings struct {
 	Code        string
 	Language    string
 	Style       string
@@ -24,8 +24,8 @@ type GenerateResult struct {
 	Styles  string
 }
 
-func NewDefaultRequest(code, language, style string) GenerateRequest {
-	return GenerateRequest{
+func NewDefaultRequest(code, language, style string) Settings {
+	return Settings{
 		Code:        code,
 		Language:    language,
 		Style:       style,
@@ -33,7 +33,7 @@ func NewDefaultRequest(code, language, style string) GenerateRequest {
 	}
 }
 
-func GenerateHtmlHighlight(request GenerateRequest) (*GenerateResult, error) {
+func GenerateHtmlHighlight(request Settings) (*GenerateResult, error) {
 	lexer := lexers.Get(request.Language)
 
 	if lexer == nil {
@@ -70,5 +70,6 @@ func GenerateHtmlHighlight(request GenerateRequest) (*GenerateResult, error) {
 		Content: contentWriter.String(),
 		Styles:  stylesWriter.String(),
 	}
+
 	return &result, nil
 }

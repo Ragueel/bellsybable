@@ -8,9 +8,9 @@ import (
 )
 
 type GenerateRequest struct {
-	Code     string `validate:"required"`
-	Language string `validate:"required"`
-	Style    string `validate:"required"`
+	Code     string `validate:"required" json:"code"`
+	Language string `validate:"required" json:"language"`
+	Style    string `validate:"required" json:"style"`
 }
 
 type GenerateResponse struct {
@@ -18,17 +18,23 @@ type GenerateResponse struct {
 }
 
 type GenerateHandler struct {
-	xValidator *validator.Validate
+	validator *validator.Validate
+}
+
+func NewGenerateHandler(validator *validator.Validate) *GenerateHandler {
+	return &GenerateHandler{
+		validator: validator,
+	}
 }
 
 func (handler *GenerateHandler) Handle(c *fiber.Ctx) error {
 	request := GenerateRequest{}
 
-	if err := c.BodyParser(request); err != nil {
+	if err := c.BodyParser(&request); err != nil {
 		return err
 	}
 
-	err := handler.xValidator.Struct(request)
+	err := handler.validator.Struct(request)
 	if err != nil {
 		return err
 	}
