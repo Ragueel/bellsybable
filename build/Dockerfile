@@ -15,3 +15,5 @@ FROM alpine:latest as production
 COPY --from=builder /bin/web /bin/web
 
 RUN chmod +x /bin/web
+
+CMD ["/bin/web"]
