@@ -10,5 +10,5 @@ Use this server to generate beautiful code highlights for your web pages
 
 ```shell
 docker pull ghcr.io/ragueel/bellsybable:main
-docker run bellsybable -p 6969:6969 
+docker run -p 7000:6969 ghcr.io/ragueel/bellsybable:main
 ```
