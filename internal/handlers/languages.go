@@ -11,11 +11,12 @@ func HandleLanguages(c *fiber.Ctx) error {
 	lexers := lexers.GlobalLexerRegistry.Lexers
 	var languages []string
 
+	sort.Sort(lexers)
+
 	for _, l := range lexers {
 		config := l.Config()
 		languages = append(languages, config.Aliases...)
 	}
-	sort.Sort(lexers)
 
 	return c.Status(200).JSON(languages)
 }
