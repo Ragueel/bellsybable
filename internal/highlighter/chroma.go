@@ -24,7 +24,7 @@ type GenerateResult struct {
 	Styles  string
 }
 
-func NewDefaultRequest(code, language, style string) Settings {
+func NewDefaultSettings(code, language, style string) Settings {
 	return Settings{
 		Code:        code,
 		Language:    language,

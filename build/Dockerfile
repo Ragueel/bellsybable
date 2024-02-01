@@ -1,7 +1,17 @@
-FROM go-1.21.6:alpine
+FROM golang:1.21.6-alpine as builder
 
+WORKDIR /app
 
-COPY go.mod go.mod go.sum go.sum
-RUN go get
+# Download Go modules
+COPY go.mod go.sum ./
+RUN go download 
+
+COPY . .
 
 RUN go build -o /bin/web ./cmd/web/main.go
+
+FROM alpine:latest as production
+
+COPY --from=builder /bin/web /bin/web
+
+RUN chmod +x /bin/web
