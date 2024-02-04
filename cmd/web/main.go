@@ -37,6 +37,7 @@ func main() {
 
 	app.Get("/styles", handlers.HandleStyles)
 	app.Get("/languages", handlers.HandleLanguages)
+	app.Get("/health", handlers.HandleHealtchCheck)
 
 	app.Listen(":6969")
 }
