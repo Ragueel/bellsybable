@@ -5,7 +5,7 @@ go 1.21.6
 require github.com/stretchr/testify v1.8.4
 
 require (
-	github.com/alecthomas/chroma v0.10.0 // indirect
+	github.com/alecthomas/chroma v0.10.0
 	github.com/alecthomas/chroma/v2 v2.12.0
 	github.com/andybalholm/brotli v1.0.5 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
@@ -13,8 +13,8 @@ require (
 	github.com/gabriel-vasile/mimetype v1.4.2 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
-	github.com/go-playground/validator/v10 v10.17.0 // indirect
-	github.com/gofiber/fiber/v2 v2.52.0 // indirect
+	github.com/go-playground/validator/v10 v10.17.0
+	github.com/gofiber/fiber/v2 v2.52.5
 	github.com/google/uuid v1.5.0 // indirect
 	github.com/klauspost/compress v1.17.0 // indirect
 	github.com/leodido/go-urn v1.2.4 // indirect
